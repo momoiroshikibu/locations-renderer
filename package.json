@@ -1,0 +1,24 @@
+{
+  "name": "locations-renderer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+    "scripts": {
+        "server": "node index.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/momoiroshikibu/locations-renderer.git"
+  },
+  "author": "momoiroshikibu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/momoiroshikibu/locations-renderer/issues"
+  },
+  "homepage": "https://github.com/momoiroshikibu/locations-renderer#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "react": "^15.4.1"
+  }
+}
