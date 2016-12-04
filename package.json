@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build:server": "babel index.es --out-file index.js",
-    "server": "node index.js 3001",
+    "server": "node --harmony index.js 3001",
     "babel": "babel src --out-dir lib",
     "_build": "browserify view.js -o out.js -t babelify",
     "test": "echo \"Error: no test specified\" && exit 1"
