@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "node index.js",
-    "view": "node _view.js",
+    "build:server": "babel index.es --out-file index.js",
+    "server": "node index.js 3001",
     "babel": "babel src --out-dir lib",
     "_build": "browserify view.js -o out.js -t babelify",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/momoiroshikibu/locations-renderer#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1"
   },
