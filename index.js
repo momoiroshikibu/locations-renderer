@@ -1,21 +1,12 @@
 const express = require('express'),
       app = express();
 
-
-
-
-const ReactDomServer = require('react-dom/server');
-
-const SampleComponent = require('./src/SampleComponent.jsx');
-
+const someView = require('./lib/some-view').default;
 
 const port = process.argv[2];
 
 app.get('/', (req, res) => {
-    
-//     res.send({
-//         message: 'yeah!'
-//     });
+    res.send(someView());
 });
 
 app.listen(port);

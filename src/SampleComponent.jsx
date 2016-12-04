@@ -1,6 +1,7 @@
-const React = require('react');
+import {Component} from 'react';
+import React from 'react';
 
-class SampleComponent extends React.Component {
+export default class SampleComponent extends Component {
 
     render() {
         return (
@@ -11,5 +12,3 @@ class SampleComponent extends React.Component {
     }
 
 }
-
-module.exports = SampleComponent;

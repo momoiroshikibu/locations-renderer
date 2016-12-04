@@ -6,8 +6,8 @@
   "scripts": {
     "server": "node index.js",
     "view": "node _view.js",
-    "babel": "browserify view.js -o _view.js -t babelify",
-    "build": "browserify view.js -o out.js -t babelify",
+    "babel": "babel src --out-dir lib",
+    "_build": "browserify view.js -o out.js -t babelify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -26,6 +26,7 @@
     "react-dom": "^15.4.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.18.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babelify": "^7.3.0"
