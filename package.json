@@ -21,7 +21,10 @@
   },
   "homepage": "https://github.com/momoiroshikibu/locations-renderer#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-redis": "^3.1.0",
     "express": "^4.14.0",
+    "express-session": "^1.14.2",
     "isomorphic-fetch": "^2.2.1",
     "morgan": "^1.7.0",
     "react": "^15.4.1",

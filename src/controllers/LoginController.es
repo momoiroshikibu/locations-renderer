@@ -1,13 +1,51 @@
+import fetch from 'isomorphic-fetch';
 import LoginView from '../views/LoginView';
 import htmlify from '../views/htmlify';
 import {renderToString} from 'react-dom/server';
 
 
-export default function LoginController(req, res) {
+function index(req, res) {
     res.send(
         htmlify({
             title: "Login",
             body: renderToString(LoginView())
         })
     );
+}
+
+function authenticate(req, res) {
+    console.log(req.body);
+
+    fetch('http://localhost:5000/access-tokens', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            'mail-address': req.body.username,
+            'password': req.body.password
+        })
+    }).then((response) => {
+        return response.json();
+    }).then((json) => {
+        console.log(json);
+        const accessToken = json.accessToken;
+        console.log(accessToken);
+        res.send({
+            request: {
+                username: req.body.username,
+                password: req.body.password
+            },
+            response: json
+        });
+        // res.redirect('/');
+    }).catch((error) => {
+        res.send(error);
+    });
+
+}
+
+export {
+    index,
+    authenticate
 }
