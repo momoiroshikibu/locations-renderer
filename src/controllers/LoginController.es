@@ -40,14 +40,8 @@ function authenticate(req, res) {
 
 }
 
-function getSession(req, res) {
-    res.send({
-        session: req.session
-    });
-}
 
 export {
     login,
-    authenticate,
-    getSession
+    authenticate
 }

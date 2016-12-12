@@ -1,7 +1,7 @@
 import express from 'express';
 import LoginView from './lib/views/LoginView';
 import HistoryController from './lib/controllers/HistoryController';
-import {login, authenticate, getSession} from './lib/controllers/LoginController';
+import {login, authenticate} from './lib/controllers/LoginController';
 import portal from './lib/controllers/PortalController';
 
 import bodyParser from 'body-parser';
@@ -38,8 +38,6 @@ app.get('/login', login);
 app.get('/', SessionChecker, portal);
 
 app.post('/authenticate', urlEncodedParser, authenticate);
-
-app.get('/session', SessionChecker, getSession);
 
 app.get('/history', SessionChecker, HistoryController);
 
