@@ -14,8 +14,6 @@ export function login(req, res) {
 }
 
 export function authenticate(req, res) {
-    console.log(req.body);
-
     fetch('http://localhost:5000/access-tokens', {
         method: 'POST',
         headers: {
@@ -28,7 +26,7 @@ export function authenticate(req, res) {
     }).then((response) => {
         return response.json();
     }).then((response) => {
-        console.log(response);
+        // { accessToken: '3690549408', userId: 160, createdAt: 3690576000 }
         req.session.accessToken = response.accessToken;
     }).then((json) => {
         res.redirect('/');
