@@ -1,7 +1,7 @@
 export default function SessionChecker(req, res, next) {
-    if (req.session.user) {
+    if (req.session.accessToken) {
         next();
     } else {
-        res.redirect('/index');
+        res.redirect('/login');
     }
 }

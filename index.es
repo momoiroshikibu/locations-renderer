@@ -1,7 +1,7 @@
 import express from 'express';
 import LoginView from './lib/views/LoginView';
 import HistoryController from './lib/controllers/HistoryController';
-import {index, authenticate, getSession} from './lib/controllers/LoginController';
+import {login, authenticate, getSession} from './lib/controllers/LoginController';
 
 import bodyParser from 'body-parser';
 
@@ -30,13 +30,16 @@ import morgan from 'morgan';
 app.use(morgan('combined'));
 
 
+import SessionChecker from './lib/middlewares/SessionChecker';
+// app.use(SessionChecker);
 
-app.get('/', index);
+
+app.get('/login', login);
 
 app.post('/authenticate', urlEncodedParser, authenticate);
 
-app.get('/session', getSession);
+app.get('/session', SessionChecker, getSession);
 
-app.get('/history', HistoryController);
+app.get('/history', SessionChecker, HistoryController);
 
 app.listen(port);

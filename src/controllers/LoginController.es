@@ -4,21 +4,13 @@ import htmlify from '../views/htmlify';
 import {renderToString} from 'react-dom/server';
 
 
-function index(req, res) {
-
-    if (req.session.accessToken == null) {
-        return res.send(
-            htmlify({
-                title: 'Login',
-                body: renderToString(LoginView())
-            })
-        );
-    } else {
-        res.send({
-            session: req.session
-        });
-
-    }
+function login(req, res) {
+    res.send(
+        htmlify({
+            title: 'Login',
+            body: renderToString(LoginView())
+        })
+    );
 }
 
 function authenticate(req, res) {
@@ -55,7 +47,7 @@ function getSession(req, res) {
 }
 
 export {
-    index,
+    login,
     authenticate,
     getSession
 }
