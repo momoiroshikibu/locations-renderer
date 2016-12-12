@@ -5,12 +5,20 @@ import {renderToString} from 'react-dom/server';
 
 
 function index(req, res) {
-    res.send(
-        htmlify({
-            title: "Login",
-            body: renderToString(LoginView())
-        })
-    );
+
+    if (req.session.accessToken == null) {
+        return res.send(
+            htmlify({
+                title: 'Login',
+                body: renderToString(LoginView())
+            })
+        );
+    } else {
+        res.send({
+            session: req.session
+        });
+
+    }
 }
 
 function authenticate(req, res) {
