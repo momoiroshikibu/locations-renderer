@@ -27,15 +27,10 @@ function authenticate(req, res) {
         })
     }).then((response) => {
         return response.json();
+    }).then((response) => {
+        req.session.accessToken = response.accessToken;
     }).then((json) => {
-        console.log(json);
-        const accessToken = json.accessToken;
-        console.log(accessToken);
         res.send({
-            request: {
-                username: req.body.username,
-                password: req.body.password
-            },
             response: json
         });
         // res.redirect('/');
@@ -45,7 +40,14 @@ function authenticate(req, res) {
 
 }
 
+function getSession(req, res) {
+    res.send({
+        session: req.session
+    });
+}
+
 export {
     index,
-    authenticate
+    authenticate,
+    getSession
 }

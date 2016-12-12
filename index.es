@@ -1,7 +1,7 @@
 import express from 'express';
 import LoginView from './lib/views/LoginView';
 import HistoryController from './lib/controllers/HistoryController';
-import {index, authenticate} from './lib/controllers/LoginController';
+import {index, authenticate, getSession} from './lib/controllers/LoginController';
 
 import bodyParser from 'body-parser';
 
@@ -34,6 +34,8 @@ app.use(morgan('combined'));
 app.get('/', index);
 
 app.post('/authenticate', urlEncodedParser, authenticate);
+
+app.get('/session', getSession);
 
 app.get('/history', HistoryController);
 
