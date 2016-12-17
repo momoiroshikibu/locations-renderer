@@ -23,7 +23,13 @@ app.use(session({
         host: '127.0.0.1',
         port: 6379
     }),
-    secret: 'keyboard cat'
+    secret: 'yeah',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        secure: false
+    }
 }));
 
 
