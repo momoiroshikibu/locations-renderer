@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch';
+
 export default function locations(req, res) {
     fetch('http://localhost:5000/locations', {
         method: 'GET',
@@ -9,8 +11,6 @@ export default function locations(req, res) {
         return response.json();
     }).then((locations) => {
         res.send({
-            message: 'This is the portal page.',
-            session: req.session,
             locations: locations
         });
     });
