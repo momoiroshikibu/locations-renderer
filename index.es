@@ -4,6 +4,7 @@ import HistoryController from './lib/controllers/HistoryController';
 import {login, authenticate} from './lib/controllers/LoginController';
 import PortalController from './lib/controllers/PortalController';
 import LocationController from './lib/controllers/LocationController';
+import UserController from './lib/controllers/UserController';
 
 import bodyParser from 'body-parser';
 
@@ -45,6 +46,7 @@ app.get('/login', login);
 app.get('/', SessionChecker, PortalController);
 
 app.get('/locations', SessionChecker, LocationController);
+app.get('/users', SessionChecker, UserController);
 
 app.post('/authenticate', urlEncodedParser, authenticate);
 
