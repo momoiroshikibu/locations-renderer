@@ -2,7 +2,8 @@ import express from 'express';
 import LoginView from './lib/views/LoginView';
 import HistoryController from './lib/controllers/HistoryController';
 import {login, authenticate} from './lib/controllers/LoginController';
-import portal from './lib/controllers/PortalController';
+import PortalController from './lib/controllers/PortalController';
+import LocationController from './lib/controllers/LocationController';
 
 import bodyParser from 'body-parser';
 
@@ -41,7 +42,9 @@ import SessionChecker from './lib/middlewares/SessionChecker';
 
 app.get('/login', login);
 
-app.get('/', SessionChecker, portal);
+app.get('/', SessionChecker, PortalController);
+
+app.get('/locations', SessionChecker, LocationController);
 
 app.post('/authenticate', urlEncodedParser, authenticate);
 
